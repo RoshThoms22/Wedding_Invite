@@ -81,6 +81,23 @@ body::before {
   transform:translateX(-50%);
 }
 .message-card > * { position:relative; z-index:1; }
+
+/* One royal oval language across every primary invitation panel. */
+.hero-content,
+.stationery-card,
+.event-ticket,
+.family-frame {
+  overflow:hidden;
+  border-radius:50% / 8% !important;
+}
+.hero-content::after,
+.stationery-card::before,
+.event-ticket::before,
+.family-frame::before {
+  border-radius:50% / 7% !important;
+}
+.countdown-card { padding-block:70px; }
+.event-ticket,.family-frame,.rsvp-card { padding-top:clamp(78px,10vw,110px); padding-bottom:clamp(78px,10vw,110px); }
 .event-ticket { background:linear-gradient(145deg,rgba(69,14,32,.95),rgba(38,7,18,.95)); }
 .family-frame { background:linear-gradient(150deg,rgba(89,24,42,.86),rgba(37,7,18,.94)); }
 .portrait-copy { background:rgba(62,15,29,.82); }
@@ -104,4 +121,6 @@ footer { background:linear-gradient(rgba(69,15,32,.45),rgba(30,5,14,.88)) !impor
   .message-card { padding-top:125px; border-radius:50% 50% 18px 18px / 92px 92px 18px 18px; }
   .message-card::before { border-radius:50% 50% 12px 12px / 82px 82px 12px 12px; }
   .message-card::after { top:29px; }
+  .hero-content,.stationery-card,.event-ticket,.family-frame { border-radius:50% / 5% !important; }
+  .hero-content::after,.stationery-card::before,.event-ticket::before,.family-frame::before { border-radius:50% / 4.5% !important; }
 }
