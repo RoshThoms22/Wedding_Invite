@@ -88,13 +88,15 @@ body::before {
 .event-ticket,
 .family-frame {
   overflow:hidden;
-  border-radius:50% / 8% !important;
+  padding-left:clamp(48px,10vw,100px);
+  padding-right:clamp(48px,10vw,100px);
+  border-radius:50% !important;
 }
 .hero-content::after,
 .stationery-card::before,
 .event-ticket::before,
 .family-frame::before {
-  border-radius:50% / 7% !important;
+  border-radius:50% !important;
 }
 .countdown-card { padding-block:70px; }
 .event-ticket,.family-frame,.rsvp-card { padding-top:clamp(78px,10vw,110px); padding-bottom:clamp(78px,10vw,110px); }
@@ -121,6 +123,6 @@ footer { background:linear-gradient(rgba(69,15,32,.45),rgba(30,5,14,.88)) !impor
   .message-card { padding-top:125px; border-radius:50% 50% 18px 18px / 92px 92px 18px 18px; }
   .message-card::before { border-radius:50% 50% 12px 12px / 82px 82px 12px 12px; }
   .message-card::after { top:29px; }
-  .hero-content,.stationery-card,.event-ticket,.family-frame { border-radius:50% / 5% !important; }
-  .hero-content::after,.stationery-card::before,.event-ticket::before,.family-frame::before { border-radius:50% / 4.5% !important; }
+  .hero-content,.stationery-card,.event-ticket,.family-frame { padding-left:44px; padding-right:44px; border-radius:50% !important; }
+  .hero-content::after,.stationery-card::before,.event-ticket::before,.family-frame::before { border-radius:50% !important; }
 }
