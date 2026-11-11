@@ -22,9 +22,11 @@
   <link rel="stylesheet" href="cinema.css?v=flow-1">
   <link rel="stylesheet" href="flow.css?v=botanical-1">
   <link rel="stylesheet" href="botanical.css?v=botanical-1">
+  <link rel="stylesheet" href="premiere.css?v=premiere-1">
   <script src="script.js?v=flow-1" defer></script>
   <script src="flow.js?v=botanical-1" defer></script>
   <script src="botanical.js?v=botanical-1" defer></script>
+  <script src="premiere.js?v=premiere-1" defer></script>
 </head>
 <body class="locked">
   <div class="film-grain" aria-hidden="true"></div>
@@ -133,8 +135,29 @@
         </div>
       </section>
 
+      <section class="events-section section-pad" id="events">
+        <span class="chapter-number reveal">03 / The celebration</span>
+        <div class="section-kicker reveal">The main feature</div>
+        <h2 class="reveal">Join us on our<br><em>forever day.</em></h2>
+        <article class="event-ticket reveal">
+          <span class="ticket-number">01</span>
+          <p class="eyebrow">Holy matrimony</p>
+          <h3>Wedding Ceremony</h3>
+          <dl class="event-details">
+            <div><dt>Date</dt><dd>Saturday, 2 January 2027</dd></div>
+            <div><dt>Time</dt><dd>04:00 PM</dd></div>
+            <div><dt>Venue</dt><dd>St. Thomas Mar Thoma Church<br>Kozhencherry, Pathanamthitta</dd></div>
+          </dl>
+          <div class="event-actions">
+            <a class="ticket-action" data-link="locationLink" target="_blank" rel="noopener noreferrer">Location ↗</a>
+            <a class="ticket-action" id="googleCalendar" target="_blank" rel="noopener noreferrer">Google Cal</a>
+            <a class="ticket-action" id="appleCalendar" download="rosh-and-jeni-wedding.ics">Apple Cal</a>
+          </div>
+        </article>
+      </section>
+
       <section class="gallery-section section-pad" id="gallery">
-        <span class="chapter-number reveal">03 / The moments between</span>
+        <span class="chapter-number reveal">04 / The moments between</span>
         <div class="section-kicker reveal">A few moments we love</div>
         <h2 class="reveal">A thousand moments.<br><em>One beautiful story.</em></h2>
         <div class="gallery-grid">
@@ -142,10 +165,15 @@
           <button class="gallery-item media-frame reveal" data-photo="galleryTwo" type="button" aria-label="Open gallery photo 2"></button>
           <button class="gallery-item media-frame reveal" data-photo="galleryThree" type="button" aria-label="Open gallery photo 3"></button>
           <button class="gallery-item wide media-frame reveal" data-photo="galleryFour" type="button" aria-label="Open gallery photo 4"></button>
+          <button class="gallery-item media-frame reveal" data-photo="galleryFive" type="button" aria-label="Open gallery photo 5"></button>
+          <button class="gallery-item media-frame reveal" data-photo="gallerySix" type="button" aria-label="Open gallery photo 6"></button>
+          <button class="gallery-item media-frame reveal" data-photo="gallerySeven" type="button" aria-label="Open gallery photo 7"></button>
+          <button class="gallery-item media-frame reveal" data-photo="galleryEight" type="button" aria-label="Open gallery photo 8"></button>
+          <button class="gallery-item wide media-frame reveal" data-photo="galleryNine" type="button" aria-label="Open gallery photo 9"></button>
         </div>
         <div class="gallery-controls reveal" aria-label="Gallery controls">
           <button type="button" id="galleryPrevious" aria-label="Previous photo">‹</button>
-          <span id="galleryCounter">1 / 4</span>
+          <span id="galleryCounter">1 / 9</span>
           <button type="button" id="galleryNext" aria-label="Next photo">›</button>
         </div>
         <p class="gallery-hint reveal">Swipe or tap the arrows</p>
@@ -155,7 +183,7 @@
         <div class="venue-photo media-frame" data-photo="venuePhoto" aria-hidden="true"></div>
         <div class="venue-overlay"></div>
         <div class="venue-card reveal">
-          <span class="chapter-number">04 / The celebration</span>
+          <span class="chapter-number">05 / Where we become one</span>
           <svg class="ceremony-cross" viewBox="0 0 32 48" aria-hidden="true"><path d="M16 2v44M3 16h26"/></svg>
           <div class="section-kicker">Where we become one</div>
           <h2 data-bind="venueName">St. Thomas Mar Thoma Church</h2>
@@ -167,6 +195,38 @@
             <span>Open location</span><b aria-hidden="true">↗</b>
           </a>
         </div>
+      </section>
+
+      <section class="rsvp-section section-pad" id="rsvp">
+        <div class="stationery-card rsvp-card">
+          <span class="chapter-number reveal">06 / Kindly respond</span>
+          <div class="section-kicker reveal">Will you join us?</div>
+          <h2 class="reveal">Your presence would<br><em>mean the world.</em></h2>
+          <form id="rsvpForm" class="rsvp-form reveal">
+            <label>Your name<input id="guestName" name="name" autocomplete="name" required></label>
+            <fieldset><legend>Will you attend?</legend><label><input type="radio" name="attendance" value="Joyfully accepts" required> Joyfully accept</label><label><input type="radio" name="attendance" value="Regretfully declines"> Regretfully decline</label></fieldset>
+            <label>Number of guests<select id="guestCount" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+            <label>A note for the couple<textarea id="guestNote" name="note" rows="3" placeholder="Your wishes…"></textarea></label>
+            <button type="submit">Confirm via WhatsApp <span>↗</span></button>
+            <p class="form-status" id="rsvpStatus" role="status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="families-section section-pad">
+        <div class="family-frame reveal">
+          <span class="chapter-number">07 / With the blessings of</span>
+          <div class="section-kicker">Our families</div>
+          <h2>Two families.<br><em>One beautiful beginning.</em></h2>
+          <div class="family-names"><div><small>Groom</small><strong data-bind="groomFullName">Rosh Thomas Kurian</strong></div><i>&amp;</i><div><small>Bride</small><strong data-bind="brideFullName">Jeni Anna Lalu</strong></div></div>
+          <p>Surrounded by the love, prayers and blessings of those who raised us, guided us and made us who we are.</p>
+        </div>
+      </section>
+
+      <section class="love-note section-pad">
+        <span class="chapter-number reveal">08 / A note of love</span>
+        <blockquote class="reveal">“Wherever life takes us, we hope this day will always remind us that love brought everyone we treasure into one room.”</blockquote>
+        <p class="signature reveal">Rosh <span>&amp;</span> Jeni</p>
       </section>
 
       <footer>
@@ -185,5 +245,6 @@
   </dialog>
 
   <audio id="backgroundMusic" loop preload="none"></audio>
+  <a class="whatsapp-fab" id="whatsappShare" target="_blank" rel="noopener noreferrer" aria-label="Share this invitation on WhatsApp">WA</a>
 </body>
 </html>

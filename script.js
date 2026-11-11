@@ -5,13 +5,15 @@ const INVITATION = {
   fullNames: "Rosh Thomas Kurian & Jeni Anna Lalu",
   groomFullName: "Rosh Thomas Kurian",
   brideFullName: "Jeni Anna Lalu",
-  // Set to "assets/music.mp3" after adding your chosen recording.
-  music: null,
+  // Add your legally obtained audio file at this exact path to enable playback.
+  music: "assets/beautiful-in-white.mp3",
   weddingDate: "2027-01-02T16:00:00+05:30",
   message: "With the blessings of God and our beloved families, we invite you to witness the beginning of our forever. Your presence will make our celebration complete and our memories all the more precious.",
   venueName: "St. Thomas Mar Thoma Church",
   venuePlace: "Kozhencherry · Pathanamthitta<br>Kerala, India",
   locationLink: "https://www.bing.com/ck/a?!&&p=be078c77e1f53ebc5c0c2a167911a4bcae2f93904503240e7642abc2f43c233cJmltdHM9MTc5NDI2ODgwMA&ptn=3&ver=2&hsh=4&fclid=21d2fa7b-0ac4-64a7-2b4a-ecc10b856551&u=a1aHR0cHM6Ly93d3cuYmluZy5jb20vYWxpbmsvbGluaz91cmw9aHR0cCUzYSUyZiUyZnd3dy5rb3poZW5jaGVycnltdGMub3JnJTJmJnNvdXJjZT1zZXJwLWxvY2FsJmg9SEtpRzBZUVQ2ejhZS0ElMmY4bTZsYzM3b1NOZzRjNlNtSzJrWGlTWnhDTjBBJTNkJnA9bHdfbWFnc21sdCZpZz04NkY5MkU0NENGNEE0QkQzODgwMjY1Q0VDQ0EzQjQ0MyZ5cGlkPVlONThFOTVDNjNERTM5MzFGMg",
+  // Add the couple's WhatsApp number with country code, digits only, to receive RSVPs directly.
+  whatsappNumber: "",
   photos: {
     coverPhoto: "assets/cover.jpg",
     heroPhoto: "assets/hero.jpg",
@@ -21,6 +23,11 @@ const INVITATION = {
     galleryTwo: "assets/gallery-2.jpg",
     galleryThree: "assets/gallery-3.jpg",
     galleryFour: "assets/gallery-4.jpg",
+    galleryFive: "assets/gallery-5.jpg",
+    gallerySix: "assets/gallery-6.jpg",
+    gallerySeven: "assets/gallery-7.jpg",
+    galleryEight: "assets/gallery-8.jpg",
+    galleryNine: "assets/gallery-9.jpg",
     venuePhoto: "assets/venue.jpg"
   }
 };
@@ -44,7 +51,7 @@ function applyContent() {
     probe.onerror = () => {
       element.classList.add('is-placeholder');
       if (element.matches('.gallery-item')) {
-        const captions = ['The beginning', 'A little magic', 'Always, you', 'To all our tomorrows'];
+        const captions = ['The beginning', 'A little magic', 'Always, you', 'To all our tomorrows', 'Side by side', 'Golden hours', 'Our favourite place', 'Written in the stars', 'Next stop: forever'];
         element.dataset.artCaption = captions[$$('.gallery-item').indexOf(element)];
         element.disabled = true;
         element.setAttribute('aria-label', 'Decorative artwork: ' + element.dataset.artCaption);
