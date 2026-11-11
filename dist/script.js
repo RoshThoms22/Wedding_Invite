@@ -3,6 +3,10 @@ const INVITATION = {
   firstName: "Rosh",
   secondName: "Jeni",
   fullNames: "Rosh Thomas Kurian & Jeni Anna Lalu",
+  groomFullName: "Rosh Thomas Kurian",
+  brideFullName: "Jeni Anna Lalu",
+  // Set to "assets/music.mp3" after adding your chosen recording.
+  music: null,
   weddingDate: "2027-01-02T16:00:00+05:30",
   message: "With the blessings of God and our beloved families, we invite you to witness the beginning of our forever. Your presence will make our celebration complete and our memories all the more precious.",
   venueName: "St. Thomas Mar Thoma Church",
@@ -37,7 +41,16 @@ function applyContent() {
       element.style.backgroundImage = `url("${src}")`;
       element.dataset.source = src;
     };
-    probe.onerror = () => element.classList.add('is-placeholder');
+    probe.onerror = () => {
+      element.classList.add('is-placeholder');
+      if (element.matches('.gallery-item')) {
+        const captions = ['The beginning', 'A little magic', 'Always, you', 'To all our tomorrows'];
+        element.dataset.artCaption = captions[$$('.gallery-item').indexOf(element)];
+        element.disabled = true;
+        element.setAttribute('aria-label', 'Decorative artwork: ' + element.dataset.artCaption);
+      }
+      if (element.matches('[role="img"]')) element.setAttribute('aria-label', 'Decorative wedding artwork');
+    };
     probe.src = src;
   });
 }
@@ -47,33 +60,54 @@ const story = $('#story');
 const music = $('#backgroundMusic');
 const soundToggle = $('#soundToggle');
 const scrollProgress = $('#scrollProgress');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (INVITATION.music) {
+  music.src = INVITATION.music;
+  soundToggle.hidden = false;
+  $('.sound-note').textContent = 'Best experienced with sound';
+}
+music.addEventListener('error', () => {
+  soundToggle.hidden = true;
+  $('.sound-note').textContent = 'Made to be remembered';
+});
 
-$('#openInvitation').addEventListener('click', async () => {
+$('#openInvitation').addEventListener('click', () => {
+  if (document.body.classList.contains('invitation-open')) return;
   story.classList.add('visible');
   story.setAttribute('aria-hidden', 'false');
+  story.inert = false;
   cover.classList.add('opened');
   document.body.classList.add('invitation-open');
   document.body.classList.remove('locked');
-  try {
-    music.volume = 0.55;
-    await music.play();
-  } catch (_) {
-    soundToggle.classList.add('muted');
-    soundToggle.setAttribute('aria-pressed', 'true');
+  if (INVITATION.music) {
+    music.volume = 0.45;
+    music.play().then(() => {
+      soundToggle.classList.remove('muted');
+      soundToggle.setAttribute('aria-pressed', 'true');
+      soundToggle.setAttribute('aria-label', 'Mute background music');
+    }).catch(() => {
+      soundToggle.classList.add('muted');
+      soundToggle.setAttribute('aria-pressed', 'false');
+      soundToggle.setAttribute('aria-label', 'Play background music');
+    });
   }
-  setTimeout(() => $('#welcome').focus({ preventScroll: true }), 900);
+  setTimeout(() => {
+    $('#welcome').focus({ preventScroll: true });
+    cover.inert = true;
+    cover.setAttribute('aria-hidden', 'true');
+  }, reducedMotion.matches ? 0 : 1400);
 });
 
 soundToggle.addEventListener('click', async () => {
   if (music.paused) {
     try { await music.play(); } catch (_) { return; }
     soundToggle.classList.remove('muted');
-    soundToggle.setAttribute('aria-pressed', 'false');
+    soundToggle.setAttribute('aria-pressed', 'true');
     soundToggle.setAttribute('aria-label', 'Mute background music');
   } else {
     music.pause();
     soundToggle.classList.add('muted');
-    soundToggle.setAttribute('aria-pressed', 'true');
+    soundToggle.setAttribute('aria-pressed', 'false');
     soundToggle.setAttribute('aria-label', 'Play background music');
   }
 });
@@ -96,7 +130,7 @@ function updateScrollDetails() {
   const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
   if (scrollProgress) scrollProgress.style.transform = `scaleX(${progress})`;
   const heroPhoto = $('.hero-photo');
-  if (heroPhoto && window.scrollY < window.innerHeight * 1.15) {
+  if (!reducedMotion.matches && heroPhoto && window.scrollY < window.innerHeight * 1.15) {
     heroPhoto.style.setProperty('--hero-shift', `${Math.min(9, window.scrollY * .012)}vh`);
   }
 }
@@ -133,7 +167,7 @@ const context = canvas.getContext('2d', { willReadFrequently: true });
 
 function paintScratchCover() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  const rect = card.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   canvas.width = Math.round(rect.width * ratio);
   canvas.height = Math.round(rect.height * ratio);
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
@@ -142,6 +176,10 @@ function paintScratchCover() {
   context.fillStyle = gradient; context.fillRect(0, 0, rect.width, rect.height);
   context.strokeStyle = 'rgba(255,245,213,.38)'; context.lineWidth = 1;
   context.strokeRect(14, 14, rect.width - 28, rect.height - 28);
+  context.strokeStyle = 'rgba(255,245,213,.17)';
+  for (let x = -rect.height; x < rect.width; x += 7) {
+    context.beginPath(); context.moveTo(x, 0); context.lineTo(x + rect.height, rect.height); context.stroke();
+  }
   context.fillStyle = '#20382d'; context.textAlign = 'center';
   context.font = `500 ${Math.max(13, rect.width * .038)}px Manrope`;
   context.letterSpacing = '3px'; context.fillText('SCRATCH TO REVEAL', rect.width / 2, rect.height / 2 - 5);
@@ -178,8 +216,13 @@ function checkScratch() {
 function completeScratch() {
   if (scratched) return;
   scratched = true;
+  canvas.tabIndex = -1;
+  canvas.setAttribute('aria-label', 'Wedding date revealed: 2 January 2027');
+  $('#scratchFallback').hidden = true;
+  card.style.touchAction = 'pan-y';
   canvas.style.transition = 'opacity .8s'; canvas.style.opacity = '0'; canvas.style.pointerEvents = 'none';
   $('#scratchHint').textContent = 'Our forever begins here';
+  if (reducedMotion.matches) return;
   const layer = $('#petalLayer');
   for (let i = 0; i < 32; i++) {
     const petal = document.createElement('i'); petal.className = 'petal';
@@ -192,8 +235,8 @@ function completeScratch() {
 }
 
 $('#scratchFallback').addEventListener('click', completeScratch);
-if (!('PointerEvent' in window)) { $('#scratchFallback').style.display = 'block'; }
 paintScratchCover();
+document.fonts.ready.then(() => { if (!scratched) paintScratchCover(); });
 let resizeTimer;
 window.addEventListener('resize', () => { if (scratched) return; clearTimeout(resizeTimer); resizeTimer = setTimeout(paintScratchCover, 150); });
 

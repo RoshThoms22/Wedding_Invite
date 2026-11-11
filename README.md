@@ -13,6 +13,12 @@ Place optimized JPG or WebP files in `dist/assets/` using these names:
 - `venue.jpg` — church or venue photo
 - `music.mp3` — background music
 
-If you prefer different filenames, change only the `photos` paths in `dist/script.js` and the `<source>` path near the end of `dist/index.html`.
+If you prefer different filenames, change the `photos` paths in `dist/script.js`. To enable background music after adding the file, set `music: "assets/music.mp3"` in the same configuration. Until then, the music control stays hidden.
+
+The cinematic styling lives in `dist/cinema.css`; the base layout is in `dist/styles.css`. Photos that have not been added display decorative artwork. They are never represented as real couple photos.
+
+Production: https://roshthoms22.github.io/Wedding_Invite/
+
+Deployment uses the `gh-pages` branch, generated from `dist/` with `git subtree split --prefix dist --branch gh-pages`. Push both `main` and `gh-pages` after edits.
 
 The WhatsApp/link-sharing preview is `dist/assets/og-preview.png`. Its absolute production URL is set in `dist/index.html`.
