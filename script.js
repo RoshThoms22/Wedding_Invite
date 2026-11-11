@@ -5,6 +5,8 @@ const INVITATION = {
   fullNames: "Rosh Thomas Kurian & Jeni Anna Lalu",
   groomFullName: "Rosh Thomas Kurian",
   brideFullName: "Jeni Anna Lalu",
+  groomFamily: "Together with his beloved family",
+  brideFamily: "Together with her beloved family",
   // Add your legally obtained audio file at this exact path to enable playback.
   music: "assets/beautiful-in-white.mp3",
   weddingDate: "2027-01-02T16:00:00+05:30",

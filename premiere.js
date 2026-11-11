@@ -28,11 +28,9 @@
     event.preventDefault();
     const data = new FormData(form);
     const name = data.get('name');
-    const attendance = data.get('attendance');
-    const guests = data.get('guests');
     const note = data.get('note')?.trim();
-    const response = `Wedding RSVP — Rosh & Jeni\nName: ${name}\nResponse: ${attendance}\nGuests: ${guests}${note ? `\nMessage: ${note}` : ''}`;
-    localStorage.setItem('roshJeniRsvp', JSON.stringify({ name, attendance, guests, note }));
+    const response = `A message for Rosh & Jeni\nFrom: ${name}${note ? `\nMessage: ${note}` : ''}`;
+    localStorage.setItem('roshJeniRsvp', JSON.stringify({ name, note }));
     document.querySelector('#rsvpStatus').textContent = 'Your response is ready to send in WhatsApp.';
     window.open(`${whatsappTarget}?text=${encode(response)}`, '_blank', 'noopener');
   });
@@ -41,10 +39,7 @@
     const saved = JSON.parse(localStorage.getItem('roshJeniRsvp'));
     if (saved?.name) {
       document.querySelector('#guestName').value = saved.name;
-      document.querySelector('#guestCount').value = saved.guests || '1';
       document.querySelector('#guestNote').value = saved.note || '';
-      const option = form.querySelector(`[name="attendance"][value="${CSS.escape(saved.attendance)}"]`);
-      if (option) option.checked = true;
     }
   } catch (_) { /* Local storage is optional. */ }
 })();

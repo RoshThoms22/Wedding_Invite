@@ -9,7 +9,7 @@
   const reveals = [...document.querySelectorAll('#story .reveal')]
     .filter(element => !element.closest('.hero'));
   const portraits = [...document.querySelectorAll('.portrait-photo')];
-  const venue = document.querySelector('.venue-section');
+  const venue = document.querySelector('.families-section');
   const clamp = value => Math.min(1, Math.max(0, value));
   const smooth = value => value * value * (3 - 2 * value);
   let pending = false;

@@ -61,7 +61,7 @@
       <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
       <nav class="topbar" aria-label="Invitation controls">
         <a class="mini-monogram" href="#welcome" aria-label="Back to beginning">R<span>·</span>J</a>
-        <a class="nav-location" href="#venue">The celebration <span aria-hidden="true">↗</span></a>
+        <a class="nav-location" href="#events">The celebration <span aria-hidden="true">↗</span></a>
         <button class="sound-toggle muted" id="soundToggle" type="button" aria-label="Play background music" aria-pressed="false" hidden>
           <span class="sound-bars"><i></i><i></i><i></i></span>
           <span class="sound-label">Sound</span>
@@ -179,21 +179,17 @@
         <p class="gallery-hint reveal">Swipe or tap the arrows</p>
       </section>
 
-      <section class="venue-section" id="venue">
-        <div class="venue-photo media-frame" data-photo="venuePhoto" aria-hidden="true"></div>
-        <div class="venue-overlay"></div>
-        <div class="venue-card reveal">
-          <span class="chapter-number">05 / Where we become one</span>
-          <svg class="ceremony-cross" viewBox="0 0 32 48" aria-hidden="true"><path d="M16 2v44M3 16h26"/></svg>
-          <div class="section-kicker">Where we become one</div>
-          <h2 data-bind="venueName">St. Thomas Mar Thoma Church</h2>
-          <p class="venue-place" data-bind="venuePlace">Kozhencherry · Pathanamthitta<br>Kerala, India</p>
-          <div class="venue-meta">
-            <span>Saturday</span><i></i><span>02 January 2027</span><i></i><span>04:00 PM</span>
+      <section class="families-section section-pad" id="families">
+        <div class="family-frame reveal">
+          <span class="chapter-number">05 / With the blessings of</span>
+          <div class="section-kicker">Our families</div>
+          <h2>Two families.<br><em>One beautiful beginning.</em></h2>
+          <div class="family-details">
+            <article><small>Groom</small><strong data-bind="groomFullName">Rosh Thomas Kurian</strong><span data-bind="groomFamily">Together with his beloved family</span></article>
+            <i>&amp;</i>
+            <article><small>Bride</small><strong data-bind="brideFullName">Jeni Anna Lalu</strong><span data-bind="brideFamily">Together with her beloved family</span></article>
           </div>
-          <a class="map-button" data-link="locationLink" target="_blank" rel="noopener noreferrer">
-            <span>Open location</span><b aria-hidden="true">↗</b>
-          </a>
+          <p>Surrounded by the love, prayers and blessings of those who raised us, guided us and made us who we are.</p>
         </div>
       </section>
 
@@ -204,8 +200,6 @@
           <h2 class="reveal">Your presence would<br><em>mean the world.</em></h2>
           <form id="rsvpForm" class="rsvp-form reveal">
             <label>Your name<input id="guestName" name="name" autocomplete="name" required></label>
-            <fieldset><legend>Will you attend?</legend><label><input type="radio" name="attendance" value="Joyfully accepts" required> Joyfully accept</label><label><input type="radio" name="attendance" value="Regretfully declines"> Regretfully decline</label></fieldset>
-            <label>Number of guests<select id="guestCount" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
             <label>A note for the couple<textarea id="guestNote" name="note" rows="3" placeholder="Your wishes…"></textarea></label>
             <button type="submit">Confirm via WhatsApp <span>↗</span></button>
             <p class="form-status" id="rsvpStatus" role="status"></p>
@@ -213,18 +207,8 @@
         </div>
       </section>
 
-      <section class="families-section section-pad">
-        <div class="family-frame reveal">
-          <span class="chapter-number">07 / With the blessings of</span>
-          <div class="section-kicker">Our families</div>
-          <h2>Two families.<br><em>One beautiful beginning.</em></h2>
-          <div class="family-names"><div><small>Groom</small><strong data-bind="groomFullName">Rosh Thomas Kurian</strong></div><i>&amp;</i><div><small>Bride</small><strong data-bind="brideFullName">Jeni Anna Lalu</strong></div></div>
-          <p>Surrounded by the love, prayers and blessings of those who raised us, guided us and made us who we are.</p>
-        </div>
-      </section>
-
       <section class="love-note section-pad">
-        <span class="chapter-number reveal">08 / A note of love</span>
+        <span class="chapter-number reveal">07 / A note of love</span>
         <blockquote class="reveal">“Wherever life takes us, we hope this day will always remind us that love brought everyone we treasure into one room.”</blockquote>
         <p class="signature reveal">Rosh <span>&amp;</span> Jeni</p>
       </section>
