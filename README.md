@@ -2,7 +2,7 @@
 
 The deployable site is in `dist/`. Wedding text, date, venue, link, and image paths are all at the top of `dist/script.js` inside the `INVITATION` object.
 
-The family-page parent names are editable through `groomParents` and `brideParents` in the same object.
+The family-page parent names and addresses are editable through `groomParents`, `brideParents`, `groomAddress`, and `brideAddress` in the same object.
 
 ## Add the supplied media
 
