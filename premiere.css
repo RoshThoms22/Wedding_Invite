@@ -28,6 +28,11 @@
 .rsvp-form button { padding:17px 20px; color:#173b2b; border:0; background:linear-gradient(110deg,#f0ddb7,#cfa55f,#f6e7c8); font:700 .62rem/1 var(--sans); letter-spacing:.15em; text-transform:uppercase; cursor:pointer; }
 .rsvp-form button span { float:right; }
 .form-status { min-height:1.2em; margin:0; color:#ebd5ab; text-align:center; font:italic 1rem var(--serif); }
+.wish-wall { display:grid; gap:14px; margin:38px auto 0; max-width:560px; }
+.wish-wall blockquote { margin:0; padding:22px; border:1px solid rgba(241,218,174,.2); background:rgba(238,210,157,.045); text-align:left; }
+.wish-wall blockquote p { margin:0 0 12px; color:#f7ead3; font:italic 1.25rem/1.45 var(--serif); }
+.wish-wall cite { color:#d5af70; font:600 .55rem var(--sans); letter-spacing:.15em; text-transform:uppercase; }
+.wish-empty { color:#d7cab2; font:italic 1.05rem var(--serif); }
 
 .families-section { padding-block:clamp(90px,16vw,180px); }
 .family-frame { position:relative; width:min(100%,850px); margin:auto; padding:clamp(60px,12vw,105px) clamp(22px,8vw,78px); color:var(--ivory); border:1px solid var(--glass-line); background:linear-gradient(150deg,rgba(11,45,31,.78),rgba(4,28,18,.9)); box-shadow:0 30px 90px rgba(0,0,0,.24); }
@@ -37,6 +42,8 @@
 .family-details strong { display:block; font:400 clamp(2rem,8vw,3.4rem)/1 var(--serif); }
 .family-details span { display:block; margin-top:16px; color:#d7cab2; font:italic 1.05rem/1.5 var(--serif); }
 .family-details > i { color:#d8b777; font:italic 400 2rem var(--serif); }
+.family-blank { display:grid; gap:17px; margin-top:27px; }
+.family-blank i { display:block; height:1px; background:rgba(241,218,174,.28); }
 .family-frame > p { max-width:580px; margin:auto; color:#d9cdb7; line-height:1.8; }
 .love-note { padding-block:clamp(100px,20vw,220px); }
 .love-note blockquote { max-width:850px; margin:45px auto 35px; color:var(--ivory); font:italic 400 clamp(2.5rem,10vw,5.8rem)/1.02 var(--serif); }

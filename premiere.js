@@ -24,22 +24,45 @@
   document.querySelector('#whatsappShare').href = `${whatsappTarget}?text=${encode(shareText)}`;
 
   const form = document.querySelector('#rsvpForm');
+  const wall = document.querySelector('#wishWall');
+  const storageKey = 'roshJeniWishes';
+  let wishes = [];
+
+  function renderWishes() {
+    wall.replaceChildren();
+    if (!wishes.length) {
+      const empty = document.createElement('p');
+      empty.className = 'wish-empty';
+      empty.textContent = 'Be the first to leave a wish.';
+      wall.appendChild(empty);
+      return;
+    }
+    wishes.slice().reverse().forEach(wish => {
+      const card = document.createElement('blockquote');
+      const message = document.createElement('p');
+      const author = document.createElement('cite');
+      message.textContent = wish.note;
+      author.textContent = `— ${wish.name}`;
+      card.append(message, author);
+      wall.appendChild(card);
+    });
+  }
+
+  try { wishes = JSON.parse(localStorage.getItem(storageKey)) || []; } catch (_) { wishes = []; }
+  renderWishes();
   form.addEventListener('submit', event => {
     event.preventDefault();
     const data = new FormData(form);
-    const name = data.get('name');
+    const name = data.get('name')?.trim();
     const note = data.get('note')?.trim();
-    const response = `A message for Rosh & Jeni\nFrom: ${name}${note ? `\nMessage: ${note}` : ''}`;
-    localStorage.setItem('roshJeniRsvp', JSON.stringify({ name, note }));
-    document.querySelector('#rsvpStatus').textContent = 'Your response is ready to send in WhatsApp.';
-    window.open(`${whatsappTarget}?text=${encode(response)}`, '_blank', 'noopener');
-  });
-
-  try {
-    const saved = JSON.parse(localStorage.getItem('roshJeniRsvp'));
-    if (saved?.name) {
-      document.querySelector('#guestName').value = saved.name;
-      document.querySelector('#guestNote').value = saved.note || '';
+    if (!name || !note) {
+      document.querySelector('#rsvpStatus').textContent = 'Please add your name and a wish.';
+      return;
     }
-  } catch (_) { /* Local storage is optional. */ }
+    wishes.push({ name, note });
+    localStorage.setItem(storageKey, JSON.stringify(wishes));
+    renderWishes();
+    form.reset();
+    document.querySelector('#rsvpStatus').textContent = 'Your wish has been added below.';
+  });
 })();

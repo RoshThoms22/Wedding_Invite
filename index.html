@@ -102,27 +102,6 @@
         </div>
       </section>
 
-      <section class="scratch-section section-pad" id="reveal-date">
-        <div class="stationery-card date-card">
-        <span class="chapter-number reveal">02 / A date with forever</span>
-        <div class="section-kicker reveal">Save our date</div>
-        <h2 class="reveal">The day our<br><em>forever begins.</em></h2>
-        <div class="scratch-card reveal" id="scratchCard">
-          <div class="revealed-date">
-            <span class="date-day">02</span>
-            <span class="date-divider"></span>
-            <span class="date-month">January</span>
-            <span class="date-year">2027</span>
-            <p>Saturday · 4:00 in the evening</p>
-          </div>
-          <canvas id="scratchCanvas" tabindex="0" role="button" aria-label="Scratch or press Enter to reveal the wedding date"></canvas>
-        </div>
-        <button class="scratch-fallback" id="scratchFallback" type="button">Or tap to reveal <span aria-hidden="true">↗</span></button>
-        <p class="scratch-hint" id="scratchHint" role="status"><span>✦</span> Gently scratch to reveal</p>
-        </div>
-        <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
-      </section>
-
       <section class="countdown-section section-pad">
         <div class="stationery-card countdown-card">
         <div class="section-kicker reveal">Until we say “I do”</div>
@@ -137,7 +116,7 @@
       </section>
 
       <section class="events-section section-pad" id="events">
-        <span class="chapter-number reveal">03 / The celebration</span>
+        <span class="chapter-number reveal">02 / The celebration</span>
         <div class="section-kicker reveal">The main feature</div>
         <h2 class="reveal">Join us on our<br><em>forever day.</em></h2>
         <article class="event-ticket reveal">
@@ -158,23 +137,16 @@
       </section>
 
       <section class="gallery-section section-pad" id="gallery">
-        <span class="chapter-number reveal">04 / The moments between</span>
+        <span class="chapter-number reveal">03 / The moments between</span>
         <div class="section-kicker reveal">A few moments we love</div>
         <h2 class="reveal">A thousand moments.<br><em>One beautiful story.</em></h2>
         <div class="gallery-grid">
           <button class="gallery-item tall media-frame reveal" data-photo="galleryOne" type="button" aria-label="Open gallery photo 1"></button>
           <button class="gallery-item media-frame reveal" data-photo="galleryTwo" type="button" aria-label="Open gallery photo 2"></button>
-          <button class="gallery-item media-frame reveal" data-photo="galleryThree" type="button" aria-label="Open gallery photo 3"></button>
-          <button class="gallery-item wide media-frame reveal" data-photo="galleryFour" type="button" aria-label="Open gallery photo 4"></button>
-          <button class="gallery-item media-frame reveal" data-photo="galleryFive" type="button" aria-label="Open gallery photo 5"></button>
-          <button class="gallery-item media-frame reveal" data-photo="gallerySix" type="button" aria-label="Open gallery photo 6"></button>
-          <button class="gallery-item media-frame reveal" data-photo="gallerySeven" type="button" aria-label="Open gallery photo 7"></button>
-          <button class="gallery-item media-frame reveal" data-photo="galleryEight" type="button" aria-label="Open gallery photo 8"></button>
-          <button class="gallery-item wide media-frame reveal" data-photo="galleryNine" type="button" aria-label="Open gallery photo 9"></button>
         </div>
         <div class="gallery-controls reveal" aria-label="Gallery controls">
           <button type="button" id="galleryPrevious" aria-label="Previous photo">‹</button>
-          <span id="galleryCounter">1 / 9</span>
+          <span id="galleryCounter">1 / 2</span>
           <button type="button" id="galleryNext" aria-label="Next photo">›</button>
         </div>
         <p class="gallery-hint reveal">Swipe or tap the arrows</p>
@@ -182,13 +154,13 @@
 
       <section class="families-section section-pad" id="families">
         <div class="family-frame reveal">
-          <span class="chapter-number">05 / With the blessings of</span>
+          <span class="chapter-number">04 / With the blessings of</span>
           <div class="section-kicker">Our families</div>
           <h2>Two families.<br><em>One beautiful beginning.</em></h2>
           <div class="family-details">
-            <article><small>Groom</small><strong data-bind="groomFullName">Rosh Thomas Kurian</strong><span data-bind="groomFamily">Together with his beloved family</span></article>
+            <article><small>Groom's family</small><div class="family-blank" aria-label="Groom's family details to be added"><i></i><i></i><i></i></div></article>
             <i>&amp;</i>
-            <article><small>Bride</small><strong data-bind="brideFullName">Jeni Anna Lalu</strong><span data-bind="brideFamily">Together with her beloved family</span></article>
+            <article><small>Bride's family</small><div class="family-blank" aria-label="Bride's family details to be added"><i></i><i></i><i></i></div></article>
           </div>
           <p>Surrounded by the love, prayers and blessings of those who raised us, guided us and made us who we are.</p>
         </div>
@@ -196,20 +168,21 @@
 
       <section class="rsvp-section section-pad" id="rsvp">
         <div class="stationery-card rsvp-card">
-          <span class="chapter-number reveal">06 / Kindly respond</span>
-          <div class="section-kicker reveal">Will you join us?</div>
-          <h2 class="reveal">Your presence would<br><em>mean the world.</em></h2>
+          <span class="chapter-number reveal">05 / Wishes</span>
+          <div class="section-kicker reveal">Leave a little love</div>
+          <h2 class="reveal">Write a wish for<br><em>our new beginning.</em></h2>
           <form id="rsvpForm" class="rsvp-form reveal">
             <label>Your name<input id="guestName" name="name" autocomplete="name" required></label>
             <label>A note for the couple<textarea id="guestNote" name="note" rows="3" placeholder="Your wishes…"></textarea></label>
-            <button type="submit">Confirm via WhatsApp <span>↗</span></button>
+            <button type="submit">Add wish to the wall <span>＋</span></button>
             <p class="form-status" id="rsvpStatus" role="status"></p>
           </form>
+          <div class="wish-wall reveal" id="wishWall" aria-live="polite"></div>
         </div>
       </section>
 
       <section class="love-note section-pad">
-        <span class="chapter-number reveal">07 / A note of love</span>
+        <span class="chapter-number reveal">06 / A note of love</span>
         <blockquote class="reveal">“Wherever life takes us, we hope this day will always remind us that love brought everyone we treasure into one room.”</blockquote>
         <p class="signature reveal">Rosh <span>&amp;</span> Jeni</p>
       </section>
