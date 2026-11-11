@@ -44,6 +44,43 @@ body::before {
   border-color:rgba(239,196,128,.42);
   box-shadow:0 30px 90px rgba(24,2,10,.34),inset 0 0 80px rgba(203,126,70,.035);
 }
+
+/* The opening message is shaped like a restrained royal palace arch. */
+.message-card {
+  overflow:hidden;
+  padding-top:clamp(145px,15vw,190px);
+  border-radius:50% 50% 24px 24px / 125px 125px 24px 24px;
+  background:
+    radial-gradient(circle at 50% 5%,rgba(241,190,104,.14),transparent 24%),
+    linear-gradient(145deg,rgba(103,26,46,.9),rgba(43,8,21,.96));
+  box-shadow:
+    0 38px 100px rgba(24,2,10,.42),
+    0 0 0 1px rgba(239,196,128,.2),
+    inset 0 0 95px rgba(221,148,76,.05);
+}
+.message-card::before {
+  inset:12px;
+  border-color:rgba(241,199,129,.34);
+  border-radius:50% 50% 16px 16px / 112px 112px 16px 16px;
+}
+.message-card::after {
+  content:"✦";
+  position:absolute;
+  top:40px;
+  left:50%;
+  z-index:0;
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  color:#efc77f;
+  border:1px solid rgba(239,199,127,.42);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(223,154,73,.18),transparent 72%);
+  box-shadow:0 0 0 8px rgba(231,178,97,.035);
+  transform:translateX(-50%);
+}
+.message-card > * { position:relative; z-index:1; }
 .event-ticket { background:linear-gradient(145deg,rgba(69,14,32,.95),rgba(38,7,18,.95)); }
 .family-frame { background:linear-gradient(150deg,rgba(89,24,42,.86),rgba(37,7,18,.94)); }
 .portrait-copy { background:rgba(62,15,29,.82); }
@@ -64,4 +101,7 @@ footer { background:linear-gradient(rgba(69,15,32,.45),rgba(30,5,14,.88)) !impor
 @media(max-width:480px) {
   .hero-content,.stationery-card,.event-ticket,.family-frame { width:calc(100vw - 28px) !important; }
   .hero-content h1 { font-size:clamp(4rem,20vw,6rem); }
+  .message-card { padding-top:125px; border-radius:50% 50% 18px 18px / 92px 92px 18px 18px; }
+  .message-card::before { border-radius:50% 50% 12px 12px / 82px 82px 12px 12px; }
+  .message-card::after { top:29px; }
 }
