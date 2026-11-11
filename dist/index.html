@@ -47,6 +47,7 @@
     </section>
 
     <div class="story" id="story" aria-hidden="true">
+      <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
       <nav class="topbar" aria-label="Invitation controls">
         <a class="mini-monogram" href="#welcome" aria-label="Back to beginning">R<span>·</span>J</a>
         <button class="sound-toggle" id="soundToggle" type="button" aria-label="Mute background music" aria-pressed="false">
@@ -56,9 +57,11 @@
       </nav>
 
       <section class="hero" id="welcome" tabindex="-1">
+        <div class="hero-frame" aria-hidden="true"></div>
         <div class="hero-photo media-frame reveal" data-photo="heroPhoto" role="img" aria-label="Rosh and Jeni"></div>
         <div class="hero-vignette"></div>
         <div class="hero-content reveal">
+          <span class="hero-chapter">The Wedding of</span>
           <p class="eyebrow">A promise. A prayer. A forever.</p>
           <h1><span data-bind="firstName">Rosh</span> <i>&amp;</i> <span data-bind="secondName">Jeni</span></h1>
           <p class="hero-date">02 · 01 · 2027</p>
@@ -69,6 +72,7 @@
       </section>
 
       <section class="message-section section-pad" id="invitation-message">
+        <div class="vow-mark reveal" aria-hidden="true"><span>R</span><i>&amp;</i><span>J</span></div>
         <div class="botanical botanical-left" aria-hidden="true">❦</div>
         <div class="section-kicker reveal">With hearts full of gratitude</div>
         <p class="lead-message reveal">Two lives, two families, and one beautiful beginning.</p>
