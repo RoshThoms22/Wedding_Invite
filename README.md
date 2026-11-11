@@ -11,7 +11,7 @@ Place optimized JPG or WebP files in `dist/assets/` using these names:
 - `cover.jpg` — opening cover (portrait works best)
 - `hero.jpg` — full-screen couple photo
 - `portrait-1.jpg`, `portrait-2.jpg` — portrait story photos
-- `gallery-1.jpg` through `gallery-9.jpg` — gallery
+- `gallery-1.jpg` and `gallery-2.jpg` — swipe gallery
 - `venue.jpg` — church or venue photo
 - `alex-morgan-wedding-instrumental-vow-exchange-578502.mp3` — current background music file
 
@@ -24,6 +24,8 @@ Scroll transitions live in `dist/flow.css` and `dist/flow.js`: the opening scene
 The botanical stationery layer is in `dist/botanical.css` and `dist/botanical.js`. It adds the sealed-envelope cover, continuous emerald-and-champagne artwork, glass stationery cards, drifting petals, and swipeable gallery stack. The generated background is `dist/assets/botanical-emerald.jpg`; it is decorative artwork, not a couple photo.
 
 The final warm color and alignment overrides are in `dist/warm.css`: all primary chapters share one centered content rail, using oxblood, mahogany, champagne gold, and warm ivory.
+
+The wishes wall currently uses browser-local storage because GitHub Pages has no database. Wishes remain visible on the device that submitted them. Connect a shared backend before describing them as public across all visitors.
 
 Production: https://roshthoms22.github.io/Wedding_Invite/
 
