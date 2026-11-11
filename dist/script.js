@@ -8,7 +8,7 @@ const INVITATION = {
   groomFamily: "Together with his beloved family",
   brideFamily: "Together with her beloved family",
   // Add your legally obtained audio file at this exact path to enable playback.
-  music: "assets/beautiful-in-white.mp3",
+  music: "assets/alex-morgan-wedding-instrumental-vow-exchange-578502.mp3",
   weddingDate: "2027-01-02T16:00:00+05:30",
   message: "With the blessings of God and our beloved families, we invite you to witness the beginning of our forever. Your presence will make our celebration complete and our memories all the more precious.",
   venueName: "St. Thomas Mar Thoma Church",

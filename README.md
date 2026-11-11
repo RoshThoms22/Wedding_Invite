@@ -13,9 +13,9 @@ Place optimized JPG or WebP files in `dist/assets/` using these names:
 - `portrait-1.jpg`, `portrait-2.jpg` — portrait story photos
 - `gallery-1.jpg` through `gallery-9.jpg` — gallery
 - `venue.jpg` — church or venue photo
-- `beautiful-in-white.mp3` — licensed background music file
+- `alex-morgan-wedding-instrumental-vow-exchange-578502.mp3` — current background music file
 
-If you prefer different filenames, change the paths in `dist/script.js`. The premiere edition expects a legally obtained copy of “Beautiful in White” at `dist/assets/beautiful-in-white.mp3`; the recording is not included in the repository. Add the couple's WhatsApp number (country code plus digits, without `+`) to `whatsappNumber` in `dist/script.js` so RSVP messages go directly to them. Until then, visitors choose a WhatsApp recipient themselves.
+If you prefer different filenames, change the paths in `dist/script.js`. Add the couple's WhatsApp number (country code plus digits, without `+`) to `whatsappNumber` in `dist/script.js` so RSVP messages go directly to them. Until then, visitors choose a WhatsApp recipient themselves.
 
 The cinematic styling lives in `dist/cinema.css`; the base layout is in `dist/styles.css`. Photos that have not been added display decorative artwork. They are never represented as real couple photos.
 
