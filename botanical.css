@@ -1,0 +1,225 @@
+/* BOTANICAL STATIONERY — inspired by layered floral invitations, original to R & J. */
+:root {
+  --glass:rgba(12,39,28,.78);
+  --glass-soft:rgba(29,65,47,.62);
+  --glass-line:rgba(235,210,159,.38);
+  --ivory:#f7edd9;
+}
+html { background:#091811; }
+body { position:relative; isolation:isolate; background:#091811; }
+body::before {
+  content:"";
+  position:fixed;
+  z-index:-3;
+  inset:-5vh -5vw;
+  background-image:linear-gradient(rgba(5,24,16,.18),rgba(5,24,16,.4)),url('assets/botanical-emerald.jpg');
+  background-size:cover;
+  background-position:center;
+  filter:saturate(.9) contrast(1.04);
+  transform:scale(1.03);
+}
+.story,.message-section,.scratch-section,.countdown-section,.portrait-story,.gallery-section,.venue-section,footer {
+  background:transparent !important;
+}
+.story::before { display:none; }
+.film-grain { opacity:.04; }
+.botanical-petals { position:fixed; z-index:45; inset:0; overflow:hidden; pointer-events:none; }
+.floating-petal {
+  position:absolute;
+  top:-8vh;
+  width:var(--petal-size,10px);
+  height:calc(var(--petal-size,10px) * 1.7);
+  border-radius:80% 10% 80% 10%;
+  background:linear-gradient(145deg,rgba(255,241,216,.85),rgba(215,181,119,.32));
+  box-shadow:0 0 10px rgba(242,210,156,.18);
+  opacity:0;
+  animation:botanicalFall var(--petal-speed,15s) linear var(--petal-delay,0s) infinite;
+}
+@keyframes botanicalFall {
+  0% { opacity:0; transform:translate3d(0,-8vh,0) rotate(0); }
+  8% { opacity:.55; }
+  85% { opacity:.35; }
+  100% { opacity:0; transform:translate3d(var(--petal-drift,40px),112vh,0) rotate(var(--petal-turn,430deg)); }
+}
+
+/* The opening becomes a small, tactile invitation envelope. */
+.cover { background:#091811 url('assets/botanical-emerald.jpg') center/cover no-repeat; }
+.cover::before { inset:18px; border-color:rgba(244,218,166,.28); }
+.cover-photo,.cover-wash,.cover .cinema-light { opacity:0; }
+.cover .cinema-dust { opacity:.8; }
+.cover-edition { color:#efe0c3; text-shadow:0 2px 16px rgba(0,0,0,.5); }
+.invitation {
+  width:min(82vw,350px);
+  height:238px;
+  padding:34px 28px 42px;
+  justify-content:center;
+  background:linear-gradient(145deg,rgba(37,87,62,.96),rgba(9,41,28,.97));
+  border:1px solid rgba(246,222,177,.55);
+  box-shadow:0 28px 65px rgba(0,0,0,.38),inset 0 0 45px rgba(232,194,126,.06);
+  backdrop-filter:blur(8px);
+}
+.invitation::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  clip-path:polygon(0 0,50% 58%,100% 0);
+  background:linear-gradient(165deg,rgba(71,123,92,.48),rgba(14,54,37,.12));
+  border-bottom:1px solid rgba(240,211,158,.2);
+  pointer-events:none;
+}
+.invitation::after {
+  display:block;
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:auto 0 0;
+  height:58%;
+  clip-path:polygon(0 100%,0 0,50% 66%,100% 0,100% 100%);
+  background:linear-gradient(150deg,rgba(16,58,40,.92),rgba(46,92,66,.94));
+  pointer-events:none;
+}
+.invitation-border { z-index:3; inset:8px; border-radius:0; border-color:rgba(248,222,172,.52); }
+.invitation-border::before { border-radius:0; border-color:rgba(248,222,172,.16); }
+.invitation-border::after { display:none; }
+.invitation > :not(.invitation-border) { position:relative; z-index:2; }
+.invitation .eyebrow { margin:0 0 10px; font-size:.5rem; letter-spacing:.34em; }
+.cover-names { flex-direction:row; align-items:center; gap:10px; font-size:clamp(2.15rem,10vw,3rem); line-height:1; }
+.cover-names i { margin:0; font-size:.62em; }
+.cover-tagline { margin:10px 0 0; font-size:.95rem; }
+.play-seal {
+  position:absolute !important;
+  z-index:5 !important;
+  left:50%;
+  bottom:-28px;
+  transform:translateX(-50%);
+  width:58px;
+  height:58px;
+  border:0;
+  background:radial-gradient(circle at 35% 25%,#fff7e5,#d9b981 45%,#9d713e 100%);
+  box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 0 4px rgba(244,219,171,.15);
+}
+.play-seal::after { content:"RJ"; color:#214a35; font:italic 600 .8rem var(--serif); letter-spacing:.08em; }
+.play-seal svg { display:none; }
+.invitation:hover .play-seal { transform:translateX(-50%) scale(1.06); }
+.open-label { position:absolute !important; top:calc(100% + 43px); width:100%; text-align:center; }
+.cover-location { display:none; }
+.sound-note { color:#ede1c8; text-shadow:0 2px 12px rgba(0,0,0,.6); }
+.cover.opened .invitation { transform:translateZ(120px) rotateX(-8deg) scale(1.06); }
+
+/* A continuous page of translucent stationery. */
+.hero-track { background:transparent; }
+.hero { background:transparent; }
+.hero-photo.is-placeholder { opacity:0 !important; }
+.hero-vignette { background:linear-gradient(0deg,rgba(7,28,18,.72),transparent 38%,rgba(6,25,17,.22)),radial-gradient(ellipse at 50% 50%,rgba(12,52,35,.08),rgba(4,20,13,.42)); }
+.hero-frame { border-color:rgba(244,217,164,.28); }
+.hero-content {
+  width:min(88vw,610px);
+  padding:52px 22px;
+  background:linear-gradient(145deg,rgba(14,54,37,.34),rgba(5,30,19,.58));
+  border:1px solid rgba(245,219,170,.28);
+  box-shadow:0 20px 70px rgba(0,0,0,.16);
+  backdrop-filter:blur(5px);
+}
+.hero-content::after { content:""; position:absolute; inset:9px; border:1px solid rgba(246,221,176,.12); pointer-events:none; }
+.hero-content h1 { font-size:clamp(4.7rem,21vw,10rem); }
+.hero-subtitle { color:#e8dac0; }
+.flow-ready .message-section { box-shadow:none; }
+.stationery-card {
+  position:relative;
+  z-index:1;
+  width:min(100%,720px);
+  margin-inline:auto;
+  padding:clamp(48px,10vw,86px) clamp(22px,7vw,60px);
+  color:var(--ivory);
+  background:linear-gradient(145deg,rgba(22,66,47,.76),rgba(7,39,26,.84));
+  border:1px solid var(--glass-line);
+  box-shadow:0 28px 80px rgba(0,0,0,.22);
+  backdrop-filter:blur(12px) saturate(.9);
+  text-align:center;
+}
+.stationery-card::before { content:""; position:absolute; inset:9px; border:1px solid rgba(245,220,170,.17); pointer-events:none; }
+.message-section,.scratch-section,.countdown-section,.portrait-story,.gallery-section { padding-top:clamp(90px,15vw,170px); padding-bottom:clamp(90px,15vw,170px); }
+.message-section::before,.message-section::after { display:none; }
+.message-section .lead-message,.message-section .body-copy { color:var(--ivory); }
+.message-section .lead-message em,.message-section .signature { color:#e5c58f; }
+.message-section .body-copy { color:#d9cfbd; }
+.vow-mark { color:#f4e3c2; border-color:rgba(241,210,150,.45); }
+.vow-mark i,.chapter-number,.section-kicker { color:#d9b979; }
+.scratch-section { background:transparent !important; }
+.scratch-section h2,.gallery-section h2 { color:var(--ivory); }
+.date-card { width:min(100%,760px); }
+.scratch-card { box-shadow:0 22px 60px rgba(0,0,0,.28); }
+.countdown-section { padding-top:25px; }
+.countdown-card { width:min(100%,760px); padding-block:50px; }
+.countdown strong,.countdown-note { color:var(--ivory); }
+.countdown span { color:#d0bf9f; }
+
+/* Portraits become hand-mounted photographs against the floral canvas. */
+.portrait-story { display:grid; gap:65px; }
+.portrait-card { width:82%; padding:10px 10px 30px; background:#f8f1e5; box-shadow:0 25px 60px rgba(0,0,0,.3); }
+.portrait-card:nth-child(1) { transform:rotate(-2.5deg); }
+.portrait-card:nth-child(3) { transform:rotate(2.5deg); }
+.portrait-photo,.portrait-two .portrait-photo { border-radius:0; box-shadow:none; }
+.portrait-photo::before { display:none; }
+.portrait-card > span { color:#6f5b40; padding:12px 4px 0; font-size:1.15rem; }
+.portrait-copy { width:min(100%,540px); padding:55px 28px; color:var(--ivory); background:var(--glass); border:1px solid var(--glass-line); backdrop-filter:blur(10px); }
+.portrait-copy h2,.portrait-copy > p:last-child { color:var(--ivory); }
+.portrait-copy > p:last-child { opacity:.8; }
+
+/* A tactile, swipeable stack of photographs. */
+.gallery-section { overflow:hidden; text-align:center; }
+.gallery-section h2 { margin-bottom:46px; }
+.gallery-grid { position:relative; display:block; width:min(92vw,570px); height:min(117vw,650px); margin:0 auto 35px; perspective:1000px; }
+.gallery-grid .gallery-item,
+.gallery-grid .gallery-item.flow-reveal,
+.gallery-grid .gallery-item.flow-reveal.in-view {
+  position:absolute;
+  inset:0 7%;
+  width:86%;
+  height:100%;
+  padding:12px 12px 66px;
+  background-color:#f8f1e5;
+  border:0;
+  box-shadow:0 25px 55px rgba(0,0,0,.32);
+  opacity:0;
+  transform:translate3d(24%,10px,-80px) rotate(7deg) scale(.9) !important;
+  pointer-events:none;
+  transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s !important;
+  filter:none;
+}
+.gallery-grid .gallery-item::before { inset:12px 12px 66px; border-color:rgba(37,51,42,.13); }
+.gallery-grid .gallery-item::after { color:#745d40; background:none; padding:0 20px 20px; align-items:flex-end; justify-content:center; text-align:center; }
+.gallery-section .gallery-grid .gallery-item.stack-active { z-index:5; opacity:1 !important; transform:translate3d(0,0,0) rotate(-1deg) scale(1) !important; pointer-events:auto; }
+.gallery-section .gallery-grid .gallery-item.stack-next { z-index:4; opacity:1 !important; transform:translate3d(3%,6px,-25px) rotate(3deg) scale(.97) !important; }
+.gallery-section .gallery-grid .gallery-item.stack-next-2 { z-index:3; opacity:.88 !important; transform:translate3d(-3%,13px,-50px) rotate(-4deg) scale(.94) !important; }
+.gallery-controls { display:flex; justify-content:center; align-items:center; gap:30px; color:var(--ivory); }
+.gallery-controls button { width:46px; height:46px; border:1px solid rgba(241,216,166,.45); border-radius:50%; color:var(--ivory); background:rgba(9,42,28,.65); cursor:pointer; font-size:1.5rem; }
+.gallery-controls button:active { transform:scale(.94); }
+.gallery-controls span { min-width:50px; font-size:.6rem; letter-spacing:.2em; }
+.gallery-hint { color:#d2c2a4; font:italic 400 1rem var(--serif); }
+
+.venue-section { padding-block:130px; background:transparent !important; }
+.venue-photo.is-placeholder { opacity:0; }
+.venue-overlay { background:linear-gradient(rgba(6,29,19,.1),rgba(6,29,19,.42)); }
+.venue-card { background:linear-gradient(145deg,rgba(22,66,47,.82),rgba(6,35,23,.9)); border-color:var(--glass-line); }
+footer { background:linear-gradient(rgba(7,31,21,.4),rgba(5,24,16,.8)) !important; }
+
+@media(min-width:760px) {
+  body::before { background-size:cover; }
+  .invitation { width:390px; height:255px; }
+  .hero-content { padding:70px 50px; }
+  .portrait-story { grid-template-columns:1fr 1.1fr 1fr; align-items:center; }
+  .portrait-card { width:100%; }
+  .portrait-two { margin-top:100px; }
+  .gallery-grid { height:650px; }
+}
+@media(max-height:650px) and (min-width:600px) {
+  .invitation { width:430px; height:195px; padding-block:18px 26px; }
+  .play-seal { width:46px; height:46px; bottom:-23px; }
+  .open-label { top:calc(100% + 32px); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .floating-petal { display:none; }
+  .gallery-grid .gallery-item { transition:none !important; }
+}
