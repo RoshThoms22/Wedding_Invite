@@ -46,11 +46,13 @@ const cover = $('#cover');
 const story = $('#story');
 const music = $('#backgroundMusic');
 const soundToggle = $('#soundToggle');
+const scrollProgress = $('#scrollProgress');
 
 $('#openInvitation').addEventListener('click', async () => {
   story.classList.add('visible');
   story.setAttribute('aria-hidden', 'false');
   cover.classList.add('opened');
+  document.body.classList.add('invitation-open');
   document.body.classList.remove('locked');
   try {
     music.volume = 0.55;
@@ -85,6 +87,27 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.14, rootMargin: '0px 0px -5% 0px' });
 $$('.reveal').forEach((element) => revealObserver.observe(element));
+
+// A restrained cinematic depth effect and reading-progress hairline.
+let scrollFrame;
+function updateScrollDetails() {
+  scrollFrame = null;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+  if (scrollProgress) scrollProgress.style.transform = `scaleX(${progress})`;
+  const heroPhoto = $('.hero-photo');
+  if (heroPhoto && window.scrollY < window.innerHeight * 1.15) {
+    heroPhoto.style.setProperty('--hero-shift', `${Math.min(9, window.scrollY * .012)}vh`);
+  }
+}
+window.addEventListener('scroll', () => {
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollDetails);
+}, { passive: true });
+updateScrollDetails();
+
+$$('.gallery-grid .reveal').forEach((element, index) => {
+  element.style.transitionDelay = `${Math.min(index * 90, 270)}ms`;
+});
 
 function updateCountdown() {
   const distance = new Date(INVITATION.weddingDate).getTime() - Date.now();
