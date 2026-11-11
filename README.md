@@ -17,6 +17,8 @@ If you prefer different filenames, change the `photos` paths in `dist/script.js`
 
 The cinematic styling lives in `dist/cinema.css`; the base layout is in `dist/styles.css`. Photos that have not been added display decorative artwork. They are never represented as real couple photos.
 
+Scroll transitions live in `dist/flow.css` and `dist/flow.js`: the opening scene holds as the invitation rises into view, section backgrounds blend, and reveals follow native scrolling in both directions. Reduced-motion settings disable the pinned scene and scroll effects. Short screens use a regular flowing layout so all content remains accessible.
+
 Production: https://roshthoms22.github.io/Wedding_Invite/
 
 Deployment uses the `gh-pages` branch, generated from `dist/` with `git subtree split --prefix dist --branch gh-pages`. Push both `main` and `gh-pages` after edits.

@@ -129,10 +129,7 @@ function updateScrollDetails() {
   const max = document.documentElement.scrollHeight - window.innerHeight;
   const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
   if (scrollProgress) scrollProgress.style.transform = `scaleX(${progress})`;
-  const heroPhoto = $('.hero-photo');
-  if (!reducedMotion.matches && heroPhoto && window.scrollY < window.innerHeight * 1.15) {
-    heroPhoto.style.setProperty('--hero-shift', `${Math.min(9, window.scrollY * .012)}vh`);
-  }
+  window.InvitationFlow?.update();
 }
 window.addEventListener('scroll', () => {
   if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollDetails);

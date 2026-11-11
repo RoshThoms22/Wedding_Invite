@@ -1,0 +1,84 @@
+/* Continuous scroll storytelling. Native scrolling remains in control. */
+:root { --chapter-blend:clamp(100px,15vw,200px); }
+.hero-track { position:relative; background:#080f0d; }
+.flow-ready .hero-track { height:155svh; }
+.flow-ready .hero-track .hero {
+  position:sticky;
+  top:0;
+  transform-origin:50% 35%;
+  transform:translate3d(0,0,0) scale(var(--scene-scale,1));
+  border-radius:var(--scene-radius,0px);
+}
+.flow-ready .hero-content.reveal {
+  opacity:var(--scene-opacity,1);
+  transform:translate3d(0,var(--scene-title-y,0px),0);
+  transition:none;
+}
+.flow-ready .hero-photo.reveal {
+  opacity:.62;
+  transform:translate3d(0,var(--scene-photo-y,0px),0) scale(var(--scene-photo-scale,1.06));
+  transition:none;
+}
+.flow-ready .hero .scroll-cue { opacity:var(--scene-opacity,1); }
+.flow-ready .hero-frame { opacity:var(--scene-opacity,1); }
+.flow-ready .message-section {
+  z-index:2;
+  margin-top:-18svh;
+  border-radius:clamp(26px,4vw,64px) clamp(26px,4vw,64px) 0 0;
+  box-shadow:0 -28px 70px rgba(0,0,0,.12);
+}
+
+/* Text and photographs settle into place with the visitor's scroll. */
+.flow-ready .flow-reveal.reveal,
+.flow-ready .flow-reveal.reveal.in-view {
+  opacity:var(--flow-opacity,1);
+  transform:translate3d(0,var(--flow-y,0px),0) scale(var(--flow-scale,1));
+  transition:none;
+}
+.flow-ready .flow-reveal:focus-within { opacity:1 !important; transform:none !important; }
+.flow-ready .portrait-photo {
+  transform:translate3d(0,var(--portrait-drift,0px),0);
+  transition:none;
+}
+.flow-ready .gallery-grid .flow-reveal { transform-origin:50% 90%; }
+.flow-ready .venue-card.flow-reveal { transform-origin:50% 70%; }
+
+/* Each gradient starts in the previous chapter's exact background colour. */
+.message-section { background:linear-gradient(#f7f3eb,#f3eee3); }
+.scratch-section {
+  padding-top:calc(var(--chapter-blend) + 65px);
+  background:linear-gradient(#f3eee3 0,#c5c5b5 calc(var(--chapter-blend)*.26),#36473b calc(var(--chapter-blend)*.65),#0a1710 var(--chapter-blend));
+}
+.countdown-section { border-top:0; padding-bottom:90px; }
+.portrait-story {
+  padding-top:calc(var(--chapter-blend) + 75px);
+  background:linear-gradient(#0a1710 0,#36473b calc(var(--chapter-blend)*.3),#d1d0bf calc(var(--chapter-blend)*.7),#f3eee3 var(--chapter-blend));
+}
+.gallery-section {
+  padding-top:calc(var(--chapter-blend) + 70px);
+  background:linear-gradient(#f3eee3 0,#c5c5b5 calc(var(--chapter-blend)*.26),#36473b calc(var(--chapter-blend)*.65),#080f0d var(--chapter-blend));
+}
+.venue-section { overflow:hidden; background:#080f0d; }
+.venue-photo { inset:-50px 0; }
+.flow-ready .venue-photo { transform:translate3d(0,var(--venue-drift,0px),0); }
+.venue-overlay { background:linear-gradient(#080f0d,transparent 25%,transparent 75%,#080f0d),radial-gradient(ellipse at center,rgba(9,25,17,.15),rgba(3,13,8,.8)); }
+footer { margin-top:-1px; }
+.topbar { transition:color .35s ease,background-color .35s ease; }
+.topbar.on-paper { color:#28372c; background:linear-gradient(rgba(247,243,235,.96),rgba(247,243,235,.75),transparent); }
+
+@media(min-width:760px) { .flow-ready .hero-track { height:165svh; } }
+/* A short landscape viewport needs room for content rather than a pinned scene. */
+@media(max-height:650px) {
+  .flow-ready .hero-track { height:auto; }
+  .flow-ready .hero-track .hero { position:relative; transform:none; border-radius:0; }
+  .flow-ready .message-section { margin-top:0; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .flow-ready .hero-track { height:auto; }
+  .flow-ready .hero-track .hero { position:relative; transform:none; border-radius:0; }
+  .flow-ready .message-section { margin-top:0; }
+  .flow-ready .flow-reveal.reveal,.flow-ready .flow-reveal.reveal.in-view,
+  .flow-ready .hero-content.reveal,.flow-ready .hero-photo.reveal,
+  .flow-ready .portrait-photo,.flow-ready .venue-photo { opacity:1; transform:none; }
+  .flow-ready .hero .scroll-cue,.flow-ready .hero-frame { opacity:1; }
+}
