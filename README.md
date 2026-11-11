@@ -19,6 +19,8 @@ The cinematic styling lives in `dist/cinema.css`; the base layout is in `dist/st
 
 Scroll transitions live in `dist/flow.css` and `dist/flow.js`: the opening scene holds as the invitation rises into view, section backgrounds blend, and reveals follow native scrolling in both directions. Reduced-motion settings disable the pinned scene and scroll effects. Short screens use a regular flowing layout so all content remains accessible.
 
+The botanical stationery layer is in `dist/botanical.css` and `dist/botanical.js`. It adds the sealed-envelope cover, continuous emerald-and-champagne artwork, glass stationery cards, drifting petals, and swipeable gallery stack. The generated background is `dist/assets/botanical-emerald.jpg`; it is decorative artwork, not a couple photo.
+
 Production: https://roshthoms22.github.io/Wedding_Invite/
 
 Deployment uses the `gh-pages` branch, generated from `dist/` with `git subtree split --prefix dist --branch gh-pages`. Push both `main` and `gh-pages` after edits.

@@ -20,12 +20,15 @@
   <link rel="preload" href="assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v=cinema-1">
   <link rel="stylesheet" href="cinema.css?v=flow-1">
-  <link rel="stylesheet" href="flow.css?v=flow-1">
+  <link rel="stylesheet" href="flow.css?v=botanical-1">
+  <link rel="stylesheet" href="botanical.css?v=botanical-1">
   <script src="script.js?v=flow-1" defer></script>
-  <script src="flow.js?v=flow-1" defer></script>
+  <script src="flow.js?v=botanical-1" defer></script>
+  <script src="botanical.js?v=botanical-1" defer></script>
 </head>
 <body class="locked">
   <div class="film-grain" aria-hidden="true"></div>
+  <div class="botanical-petals" id="botanicalPetals" aria-hidden="true"></div>
 
   <main>
     <section class="cover" id="cover" aria-label="Wedding invitation cover">
@@ -85,6 +88,7 @@
       </div>
 
       <section class="message-section section-pad" id="invitation-message">
+        <div class="stationery-card message-card">
         <span class="chapter-number reveal">01 / The beginning</span>
         <div class="vow-mark reveal" aria-hidden="true"><span>R</span><i>&amp;</i><span>J</span></div>
         <div class="botanical botanical-left" aria-hidden="true">❦</div>
@@ -92,9 +96,11 @@
         <p class="lead-message reveal">Of all the stories,<br><em>ours is my favourite.</em></p>
         <p class="body-copy reveal" data-bind="message">With the blessings of God and our beloved families, we invite you to witness the beginning of our forever. Your presence will make our celebration complete and our memories all the more precious.</p>
         <div class="signature reveal">Rosh <span>&amp;</span> Jeni</div>
+        </div>
       </section>
 
       <section class="scratch-section section-pad" id="reveal-date">
+        <div class="stationery-card date-card">
         <span class="chapter-number reveal">02 / A date with forever</span>
         <div class="section-kicker reveal">Save our date</div>
         <h2 class="reveal">The day our<br><em>forever begins.</em></h2>
@@ -110,10 +116,12 @@
         </div>
         <button class="scratch-fallback" id="scratchFallback" type="button">Or tap to reveal <span aria-hidden="true">↗</span></button>
         <p class="scratch-hint" id="scratchHint" role="status"><span>✦</span> Gently scratch to reveal</p>
+        </div>
         <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
       </section>
 
       <section class="countdown-section section-pad">
+        <div class="stationery-card countdown-card">
         <div class="section-kicker reveal">Until we say “I do”</div>
         <div class="countdown reveal" id="countdown" aria-label="Countdown to the wedding">
           <div><strong data-unit="days">000</strong><span>Days</span></div>
@@ -122,6 +130,7 @@
           <div><strong data-unit="seconds">00</strong><span>Seconds</span></div>
         </div>
         <p class="countdown-note reveal">Every day brings us closer to forever.</p>
+        </div>
       </section>
 
       <section class="portrait-story section-pad">
@@ -150,6 +159,12 @@
           <button class="gallery-item media-frame reveal" data-photo="galleryThree" type="button" aria-label="Open gallery photo 3"></button>
           <button class="gallery-item wide media-frame reveal" data-photo="galleryFour" type="button" aria-label="Open gallery photo 4"></button>
         </div>
+        <div class="gallery-controls reveal" aria-label="Gallery controls">
+          <button type="button" id="galleryPrevious" aria-label="Previous photo">‹</button>
+          <span id="galleryCounter">1 / 4</span>
+          <button type="button" id="galleryNext" aria-label="Next photo">›</button>
+        </div>
+        <p class="gallery-hint reveal">Swipe or tap the arrows</p>
       </section>
 
       <section class="venue-section" id="venue">
