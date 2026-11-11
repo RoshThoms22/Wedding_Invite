@@ -7,6 +7,8 @@ const INVITATION = {
   brideFullName: "Jeni Anna Lalu",
   groomParents: "Kurian C Thomas & Salamma Kurian",
   brideParents: "Late Lalu K Koshy & Alikutty Lalu Koshy",
+  groomAddress: "Chelikuzhiyil House, Thekkemala, Kozhencherry",
+  brideAddress: "Koikkaparambil House, Kumbanad",
   // Add your legally obtained audio file at this exact path to enable playback.
   music: "assets/alex-morgan-wedding-instrumental-vow-exchange-578502.mp3",
   weddingDate: "2027-01-02T16:00:00+05:30",
