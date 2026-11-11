@@ -1,0 +1,67 @@
+/* WARM PREMIERE — one aligned content rail in oxblood, mahogany and champagne. */
+:root {
+  --glass:rgba(66,18,31,.82);
+  --glass-soft:rgba(92,30,42,.67);
+  --glass-line:rgba(239,196,128,.4);
+  --ivory:#fff0d8;
+  --warm-oxblood:#541525;
+  --warm-mahogany:#2b0c16;
+  --warm-gold:#d7a95e;
+}
+html,body { background:#260b14; }
+body::before {
+  background-image:linear-gradient(145deg,rgba(78,13,32,.64),rgba(35,7,18,.82)),url('assets/botanical-emerald.jpg');
+  background-blend-mode:color,multiply;
+  filter:saturate(.92) contrast(1.07) sepia(.08);
+}
+.cover {
+  background-image:linear-gradient(145deg,rgba(90,18,38,.62),rgba(34,7,17,.82)),url('assets/botanical-emerald.jpg');
+  background-blend-mode:color,multiply;
+}
+.invitation { background:linear-gradient(145deg,rgba(115,35,52,.97),rgba(48,10,23,.98)); }
+.invitation::before { background:linear-gradient(165deg,rgba(150,63,72,.45),rgba(57,14,27,.12)); }
+.invitation::after { background:linear-gradient(150deg,rgba(61,12,27,.94),rgba(105,30,47,.96)); }
+.play-seal::after { color:#651c2d; }
+
+/* Every primary chapter shares the same 820px centered rail. */
+.hero-content,
+.stationery-card,
+.event-ticket,
+.family-frame {
+  box-sizing:border-box;
+  width:min(92vw,820px) !important;
+  margin-inline:auto !important;
+}
+.hero-content { padding-inline:clamp(22px,6vw,66px); }
+.hero-content h1 { font-size:clamp(4.1rem,14vw,8.6rem); }
+.message-section,.scratch-section,.countdown-section,.events-section,.gallery-section,.families-section,.rsvp-section,.love-note { padding-inline:0; }
+.gallery-section > .chapter-number,.gallery-section > .section-kicker,.gallery-section > h2,
+.events-section > .chapter-number,.events-section > .section-kicker,.events-section > h2,
+.love-note > .chapter-number,.love-note > blockquote,.love-note > .signature { width:min(92vw,820px); margin-inline:auto; }
+
+.hero-content,.stationery-card,.event-ticket,.family-frame,.venue-card {
+  background:linear-gradient(145deg,rgba(92,25,43,.79),rgba(39,8,20,.9));
+  border-color:rgba(239,196,128,.42);
+  box-shadow:0 30px 90px rgba(24,2,10,.34),inset 0 0 80px rgba(203,126,70,.035);
+}
+.event-ticket { background:linear-gradient(145deg,rgba(69,14,32,.95),rgba(38,7,18,.95)); }
+.family-frame { background:linear-gradient(150deg,rgba(89,24,42,.86),rgba(37,7,18,.94)); }
+.portrait-copy { background:rgba(62,15,29,.82); }
+.chapter-number,.section-kicker,.vow-mark i,.ticket-number { color:#e1b469; }
+.message-section .lead-message em,.message-section .signature,
+.events-section h2 em,.rsvp-section h2 em,.families-section h2 em,
+.love-note .signature,.family-details > i { color:#efbd75; }
+.countdown span,.countdown-note,.gallery-hint,.family-frame > p { color:#e3cdb1; }
+.ticket-action,.gallery-controls button { background:rgba(72,13,31,.72); border-color:rgba(239,196,128,.45); }
+.rsvp-form button,.map-button { background:linear-gradient(110deg,#f3d9aa,#c99042,#f7e4bc); color:#4c1224; }
+.whatsapp-fab { background:rgba(91,22,43,.92); }
+.whatsapp-fab:hover { background:#a13d51; }
+
+.gallery-grid .gallery-item.is-placeholder { background-image:radial-gradient(circle at 78% 12%,rgba(222,167,91,.34),transparent 38%),linear-gradient(145deg,#6c2437,#280a17) !important; }
+.gallery-grid .gallery-item:nth-child(2n).is-placeholder { background-image:radial-gradient(circle at 20% 80%,rgba(205,133,72,.28),transparent 42%),linear-gradient(145deg,#3b0c1d,#7f2d3e) !important; }
+footer { background:linear-gradient(rgba(69,15,32,.45),rgba(30,5,14,.88)) !important; }
+
+@media(max-width:480px) {
+  .hero-content,.stationery-card,.event-ticket,.family-frame { width:calc(100vw - 28px) !important; }
+  .hero-content h1 { font-size:clamp(4rem,20vw,6rem); }
+}

@@ -23,6 +23,8 @@ Scroll transitions live in `dist/flow.css` and `dist/flow.js`: the opening scene
 
 The botanical stationery layer is in `dist/botanical.css` and `dist/botanical.js`. It adds the sealed-envelope cover, continuous emerald-and-champagne artwork, glass stationery cards, drifting petals, and swipeable gallery stack. The generated background is `dist/assets/botanical-emerald.jpg`; it is decorative artwork, not a couple photo.
 
+The final warm color and alignment overrides are in `dist/warm.css`: all primary chapters share one centered content rail, using oxblood, mahogany, champagne gold, and warm ivory.
+
 Production: https://roshthoms22.github.io/Wedding_Invite/
 
 Deployment uses the `gh-pages` branch, generated from `dist/` with `git subtree split --prefix dist --branch gh-pages`. Push both `main` and `gh-pages` after edits.
