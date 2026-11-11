@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#f7f0e2" />
+  <meta name="description" content="Celebrate the wedding of Rosh & Jeni — 2 January 2027." />
+  <title>Rosh & Jeni | 02.01.2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="locked">
+  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+    <div class="welcome-card ornament">
+      <span class="eyebrow">WITH LOVE & BLESSINGS</span>
+      <div class="motif" aria-hidden="true">❦</div>
+      <p class="welcome-intro">The wedding celebration of</p>
+      <h1 id="welcome-title">Rosh <em>&</em> Jeni</h1>
+      <div class="thin-line"></div>
+      <p class="date-display">SATURDAY · 02 JANUARY 2027</p>
+      <button id="open-invite" class="button primary">Open Invitation <span aria-hidden="true">↗</span></button>
+      <p class="tiny">A new chapter begins</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#home">R <span>✦</span> J</a>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">☰</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#story">Our Story</a><a href="#events">Events</a><a href="#family">Family</a><a href="#gallery">Gallery</a><a href="#wishes">Wishes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-border"></div>
+      <div class="hero-content">
+        <p class="eyebrow light">TOGETHER WITH OUR FAMILIES</p>
+        <p class="hero-prelude">Joyfully invite you to celebrate the wedding of</p>
+        <h2>Rosh <span>&</span> Jeni</h2>
+        <div class="hero-divider">✦</div>
+        <p class="hero-date">02 · 01 · 2027</p>
+        <p class="hero-subtitle">Saturday · Kerala, India</p>
+        <a href="#events" class="button ghost">Explore the Celebration ↓</a>
+      </div>
+      <div class="hero-arch" aria-hidden="true"></div>
+    </section>
+
+    <section class="section intro" id="story">
+      <p class="eyebrow">A BEAUTIFUL BEGINNING</p>
+      <h2>Two hearts, one journey</h2>
+      <div class="divider-symbol">❧</div>
+      <p class="intro-copy">With grateful hearts and the blessings of our loved ones, we begin a lifetime of togetherness. Your presence will make our special day even more memorable.</p>
+      <div class="photo-frame portrait" role="img" aria-label="Placeholder for the couple's portrait"><span>OUR PHOTO<br><small>Replace with your favourite portrait</small></span></div>
+    </section>
+
+    <section class="section countdown-section">
+      <p class="eyebrow light">THE BIG DAY IS APPROACHING</p>
+      <h2>Counting down to forever</h2>
+      <div class="countdown" id="countdown" aria-live="off">
+        <div><strong id="days">--</strong><span>Days</span></div><div><strong id="hours">--</strong><span>Hours</span></div><div><strong id="minutes">--</strong><span>Minutes</span></div><div><strong id="seconds">--</strong><span>Seconds</span></div>
+      </div>
+      <p id="countdown-message" class="countdown-note">Until 2 January 2027, Kerala time</p>
+    </section>
+
+    <section class="section events" id="events">
+      <p class="eyebrow">SAVE THE DATE</p>
+      <h2>Wedding Celebrations</h2>
+      <p class="section-lead">We can't wait to celebrate with you. Venue and timing details will be updated soon.</p>
+      <div class="event-grid">
+        <article class="event-card ornament"><span class="event-icon">✝</span><h3>Wedding Ceremony</h3><p class="event-date">Saturday, 2 January 2027</p><p>Time to be announced</p><p class="venue">Church / venue to be confirmed<br>Kerala, India</p><a class="button outline" href="https://www.google.com/maps/search/?api=1&query=Kerala%2C%20India" target="_blank" rel="noopener noreferrer">Map placeholder ↗</a></article>
+        <article class="event-card ornament"><span class="event-icon">❀</span><h3>Wedding Reception</h3><p class="event-date">Saturday, 2 January 2027</p><p>Time to be announced</p><p class="venue">Reception venue to be confirmed<br>Kerala, India</p><a class="button outline" href="https://www.google.com/maps/search/?api=1&query=Kerala%2C%20India" target="_blank" rel="noopener noreferrer">Map placeholder ↗</a></article>
+      </div>
+      <a class="text-link" id="calendar-link" href="#events">Add the date to Google Calendar ↗</a>
+      <p class="small-note">Map links currently point to Kerala, not the final venues. Update them before sharing.</p>
+    </section>
+
+    <section class="section family" id="family">
+      <p class="eyebrow">WITH THE BLESSINGS OF</p>
+      <h2>Our Families</h2>
+      <div class="family-grid"><div class="family-card"><span class="family-initial">R</span><h3>Rosh's Family</h3><p>Parents' names and family details<br>coming soon</p></div><div class="family-separator">&</div><div class="family-card"><span class="family-initial">J</span><h3>Jeni's Family</h3><p>Parents' names and family details<br>coming soon</p></div></div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <p class="eyebrow">OUR FAVOURITE MOMENTS</p><h2>Captured with Love</h2><p class="section-lead">Add your engagement or pre-wedding photographs here.</p>
+      <div class="gallery-grid"><div class="photo-frame tall"><span>PHOTO 01</span></div><div class="photo-frame"><span>PHOTO 02</span></div><div class="photo-frame"><span>PHOTO 03</span></div></div>
+    </section>
+
+    <section class="section wishes" id="wishes">
+      <p class="eyebrow">WORDS FROM THE HEART</p><h2>Leave Your Blessings</h2><p class="section-lead">Share a little love for our new beginning.</p>
+      <form id="wish-form" class="wish-form"><label for="guest-name">Your name</label><input id="guest-name" name="name" maxlength="60" required placeholder="Your name"/><label for="guest-message">Your message</label><textarea id="guest-message" name="message" rows="4" maxlength="500" required placeholder="Write your wishes..."></textarea><button class="button primary" type="submit">Leave a Wish ♡</button></form>
+      <p class="small-note">Demo mode: wishes are saved only in this browser. For a public guestbook, connect a database before launch.</p>
+      <div class="wishes-list" id="wishes-list" aria-live="polite"></div>
+    </section>
+
+    <section class="closing"><div class="closing-inner"><p class="eyebrow light">YOUR PRESENCE IS OUR GREATEST GIFT</p><h2>We can't wait to see you!</h2><p>With love,</p><div class="signature">Rosh & Jeni</div><p>02 January 2027</p><button class="button ghost" id="share-button">Share Invitation ↗</button></div></section>
+  </main>
+  <footer>Made with ♡ for Rosh & Jeni <span>·</span> 2027</footer>
+  <script src="script.js"></script>
+</body>
+</html>
