@@ -9,11 +9,11 @@ Place optimized JPG or WebP files in `dist/assets/` using these names:
 - `cover.jpg` — opening cover (portrait works best)
 - `hero.jpg` — full-screen couple photo
 - `portrait-1.jpg`, `portrait-2.jpg` — portrait story photos
-- `gallery-1.jpg` through `gallery-4.jpg` — gallery
+- `gallery-1.jpg` through `gallery-9.jpg` — gallery
 - `venue.jpg` — church or venue photo
-- `music.mp3` — background music
+- `beautiful-in-white.mp3` — licensed background music file
 
-If you prefer different filenames, change the `photos` paths in `dist/script.js`. To enable background music after adding the file, set `music: "assets/music.mp3"` in the same configuration. Until then, the music control stays hidden.
+If you prefer different filenames, change the paths in `dist/script.js`. The premiere edition expects a legally obtained copy of “Beautiful in White” at `dist/assets/beautiful-in-white.mp3`; the recording is not included in the repository. Add the couple's WhatsApp number (country code plus digits, without `+`) to `whatsappNumber` in `dist/script.js` so RSVP messages go directly to them. Until then, visitors choose a WhatsApp recipient themselves.
 
 The cinematic styling lives in `dist/cinema.css`; the base layout is in `dist/styles.css`. Photos that have not been added display decorative artwork. They are never represented as real couple photos.
 
